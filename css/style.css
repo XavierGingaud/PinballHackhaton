@@ -36,6 +36,9 @@ body {
 	/* position: absolute; */
 	/* top: 5px; */
 	line-height: 1;
+	color: black;
+	top: 5px;
+	position: absolute;
 }
 
 .level span{
