@@ -332,6 +332,8 @@
 
 	function pingBumper(bumper) {
 		updateScore(currentScore + 10);
+		var blaster = document.querySelector('#blaster');
+		blaster.play();
 
 		// flash color
 		bumper.render.fillStyle = COLOR.BUMPER_LIT;
