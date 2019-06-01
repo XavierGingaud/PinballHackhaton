@@ -20,11 +20,6 @@ body {
 	text-transform: uppercase;
 }
 
-.menu{
-	display: flex;
-	flex-direction: column;
-}
-
 .button{
 	color: white;
 	background: #A80606;
