@@ -143,6 +143,15 @@ canvas {
 	left: 315px;
 }
 
+#levelDisplay {
+	color: #A80606;
+	position: absolute;
+	top: 50%;
+	left: 10vw;
+	font-size: 7em;
+	transform: translate(0%, -50%);
+}
+
 /* responsive scaling, because pinball tables are tall */
 @media (min-height: 0px) {
 	.container { -webkit-transform: scale(0.25); transform: scale(0.25); }
