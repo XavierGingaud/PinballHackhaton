@@ -34,16 +34,18 @@
 	let engine, world, render, pinball, stopperGroup;
 	let leftPaddle, leftUpStopper, leftDownStopper, isLeftPaddleUp;
 	let rightPaddle, rightUpStopper, rightDownStopper, isRightPaddleUp;
-
 	function load() {
 		init();
 		createStaticBodies();
 		createPaddles();
 		createPinball();
 		createEvents();
+
+
 	}
 
 	function init() {
+
 		// engine (shared)
 		engine = Matter.Engine.create();
 
@@ -141,6 +143,7 @@
 	}
 
 	function createPaddles() {
+
 		// these bodies keep paddle swings contained, but allow the ball to pass through
 		leftUpStopper = stopper(160, 591, 'left', 'up');
 		leftDownStopper = stopper(140, 743, 'left', 'down');
@@ -233,6 +236,7 @@
 	}
 
 	function createPinball() {
+
 		// x/y are set to when pinball is launched
 		pinball = Matter.Bodies.circle(0, 0, 14, {
 			label: 'pinball',
@@ -341,6 +345,7 @@
 
 		// flash color
 		bumper.render.fillStyle = COLOR.BUMPER_LIT;
+		 player.play();
 		setTimeout(function() {
 			bumper.render.fillStyle = COLOR.BUMPER;
 		}, 100);
