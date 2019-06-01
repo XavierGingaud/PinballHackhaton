@@ -11,13 +11,12 @@
 		APRON_RIGHT: '180 0 180 120 0 120 180 0'
 	};
 	const COLOR = {
-		BACKGROUND: '#212529',
-		OUTER: '#495057',
-		INNER: '#15aabf',
-		BUMPER: '#fab005',
-		BUMPER_LIT: '#fff3bf',
-		PADDLE: '#e64980',
-		PINBALL: '#dee2e6'
+		OUTER: '#FFFFFF',
+		INNER: '#E30000',
+		BUMPER: '#A80606',
+		BUMPER_LIT: '#FF0000',
+		PADDLE: '#A80606',
+		PINBALL: '#E30000'
 	};
 	const GRAVITY = 0.75;
 	const WIREFRAMES = false;
@@ -53,7 +52,7 @@
 			min: { x: 0, y: 0},
 			max: { x: 500, y: 800 }
 		};
-		world.gravity.y = GRAVITY; // simulate rolling on a slanted table
+		world.gravity.y = GRAVITY;
 
 		// render (shared)
 		render = Matter.Render.create({
