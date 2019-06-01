@@ -31,6 +31,16 @@ body {
 	line-height: 1;
 }
 
+.level{
+	/* position: absolute; */
+	/* top: 5px; */
+	line-height: 1;
+}
+
+.level span{
+	font-size: 3.25rem;
+}
+
 .score span {
 	font-size: 3.25rem;
 }
