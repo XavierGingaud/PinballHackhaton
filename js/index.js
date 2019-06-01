@@ -27,9 +27,10 @@
 	// score elements
 	let $currentScore = $('.current-score span');
 	let $highScore = $('.high-score span');
+	let $levelScore = $('.lvl-score span');
 
 	// shared variables
-	let currentScore, highScore;
+	let currentScore, highScore, levelScore;
 	let engine, world, render, pinball, stopperGroup;
 	let leftPaddle, leftUpStopper, leftDownStopper, isLeftPaddleUp;
 	let rightPaddle, rightUpStopper, rightDownStopper, isRightPaddleUp;
@@ -77,6 +78,7 @@
 		// starting values
 		currentScore = 0;
 		highScore = 0;
+		levelScore = 0;
 		isLeftPaddleUp = false;
 		isRightPaddleUp = false;
 	}
@@ -342,8 +344,28 @@
 		currentScore = newCurrentScore;
 		$currentScore.text(currentScore);
 
+		//Create a condition level
+		if (currentScore == 0 || currentScore < 30) {
+			updateLevel(1);
+			//alert("level 1");
+		}else if (currentScore == 30 || currentScore < 60) {
+			updateLevel(2);
+		}else if (currentScore == 60 || currentScore < 90) {
+			updateLevel(3);
+		}else if (currentScore == 90 || currentScore < 120) {
+			updateLevel(4);
+		}else if (currentScore == 120 || currentScore < 150) {
+			updateLevel(5);
+		}
+
 		highScore = Math.max(currentScore, highScore);
 		$highScore.text(highScore);
+	}
+
+	//TODO create a level
+	function updateLevel(newCurrentLevel){
+		levelScore = newCurrentLevel;
+		$levelScore.text(levelScore);
 	}
 
 	// matter.js has a built in random range function, but it is deterministic
