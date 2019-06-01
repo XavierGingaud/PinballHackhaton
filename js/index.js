@@ -94,9 +94,12 @@
 			path(239, 86, PATHS.DOME),
 
 			// pegs (left, mid, right)
-			wall(140, 140, 20, 40, COLOR.INNER),
-			wall(225, 140, 20, 40, COLOR.INNER),
-			wall(310, 140, 20, 40, COLOR.INNER),
+			wall(100, 140, 10, 40, COLOR.INNER),
+			wall(150, 140, 10, 40, COLOR.INNER),
+			wall(200, 140, 10, 40, COLOR.INNER),
+			wall(250, 140, 10, 40, COLOR.INNER),
+			wall(300, 140, 10, 40, COLOR.INNER),
+			wall(350, 140, 10, 40, COLOR.INNER),
 
 			// top bumpers (left, mid, right)
 			bumper(105, 250),
@@ -364,7 +367,7 @@
 		return Matter.Bodies.rectangle(x, y, width, height, {
 			angle: angle,
 			isStatic: true,
-			chamfer: { radius: 10 },
+			chamfer: { radius: 0 },
 			render: {
 				fillStyle: color
 			}
