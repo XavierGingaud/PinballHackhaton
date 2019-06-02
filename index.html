@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="chronoStart()">
 
   <div class="container">
   <div class="score current-score">
@@ -30,8 +30,15 @@
 <div class="level lvl-score">
   lvl<br><span></span>
 </div>
+<div id="monthDisplay">
+  
+</div>
 
-<div style="position: absolute; top: 0; right: 10vw; color: black; line-height: 0.6em; text-transform: none;">
+<div id="timelaps" style="position: absolute; top: 50px; right: 10vw; color: black; line-height: 0.6em; text-transform: none;">
+
+</div>
+
+<div style="position: absolute; top: 52px; right: 10vw; color: black; line-height: 0.6em; text-transform: none;">
   <h4>Définition de CROUS :</h4>
   <p id="cent" class="hidden">Centre</p>
   <p id="regi" class="hidden">Régional des</p>
@@ -50,10 +57,6 @@
 <div>
   <button class="btn_menu"><a href="menu.html">Menu</a></button>
 </div>
-
-
-<p id="spring" class="bordure_verticale"></p>
-
 
 <audio src="musique/blaster.mp3" id="blaster"></audio>
 <audio id="theme" src="musique/theme.mp3"  loop autoplay></audio>

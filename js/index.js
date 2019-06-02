@@ -3,6 +3,7 @@
 	Matter.use(MatterAttractors);
 
 	$levelDisplay = $("#levelDisplay");
+	$monthDisplay = $("#monthDisplay");
 
 	// constants
 	const PATHS = {
@@ -48,7 +49,6 @@
 		createPaddles();
 		createPinball();
 		createEvents();
-
 
 	}
 
@@ -122,7 +122,7 @@
 			bumper(285, 340),
 
 			// shooter lane wall
-			wall(440, 520, 20, 560, COLOR.OUTER),
+			wall(440, 520, 20, 530, COLOR.OUTER),
 
 			// drops (left, right)
 			path(25, 360, PATHS.DROP_LEFT),
@@ -491,7 +491,7 @@
 		return Matter.Bodies.rectangle(x, y, width, height, {
 			angle: angle,
 			isStatic: true,
-			chamfer: { radius: 5 },
+			chamfer: { radius: 10 },
 			render: {
 				fillStyle: color
 			}
@@ -578,3 +578,61 @@
 
 	
 })();
+
+// Chrono
+	var startTime = 0
+	var start = 0
+	var end = 0
+	var diff = 0
+	var timerID = 0
+	function chrono(){
+		end = new Date()
+		diff = end - start
+		diff = new Date(diff)
+		var msec = diff.getMilliseconds()
+		var sec = diff.getSeconds()
+		var min = diff.getMinutes()
+		var hr = diff.getHours()-1
+		if (min < 10){
+			min = "0" + min
+		}
+		if (sec < 10){
+			sec = "0" + sec
+		}
+		if(msec < 10){
+			msec = "00" +msec
+		}
+		else if(msec < 100){
+			msec = "0" +msec
+		}
+		document.getElementById("timelaps").innerHTML = hr + ":" + min + ":" + sec
+		timerID = setTimeout("chrono()", 10)
+
+		if (min == 0 && sec == 45) {
+			$monthDisplay.empty()
+			$monthDisplay.append("Janvier");
+			setTimeout(function(){$monthDisplay.empty();}, 3000);
+		}else if (min == 1 && sec == 30) {
+			$monthDisplay.empty()
+			$monthDisplay.append("Février");
+			setTimeout(function(){$monthDisplay.empty();}, 3000);
+		} else if (min == 2 && sec == 20) {
+			$monthDisplay.empty()
+			$monthDisplay.append("Mars");
+			setTimeout(function(){$monthDisplay.empty();}, 3000);
+		} else if(min == 3){
+			$monthDisplay.empty()
+			$monthDisplay.append("Avril");
+			setTimeout(function(){$monthDisplay.empty();}, 3000);
+		}else if(min == 3 && sec == 15){
+			$monthDisplay.empty()
+			$monthDisplay.append("15 Avril dernier jour pour vous inscrire au CROUS");
+			setTimeout(function(){$monthDisplay.empty();}, 3000);
+		}
+
+	}
+
+	function chronoStart(){
+		start = new Date()
+		chrono()
+	}
