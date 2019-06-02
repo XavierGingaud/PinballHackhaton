@@ -275,6 +275,16 @@
 							resetPinball();
 							levelCurrent = 1;
 							updateLevel(1);
+							$('#c').css("color", "");
+							$('#cent').addClass("hidden");
+							$('#r').css("color", "");
+							$('#regi').addClass("hidden");
+							$('#o').css("color", "");
+							$('#oeuv').addClass("hidden");
+							$('#u').css("color", "");
+							$('#univ').addClass("hidden");
+							$('#s').css("color", "");
+							$('#scol').addClass("hidden");
 							break;
 						case 'bumper':
 							pingBumper(pair.bodyA);
