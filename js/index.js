@@ -408,6 +408,9 @@
 			if (e.which === 32) { // space arrow key
 				if (isReset) {
 					launchPinball();
+
+		let launch = document.querySelector('#launch');
+		launch.play();
 				}
 			}
 		});
@@ -440,6 +443,7 @@
 		Matter.Body.setPosition(pinball, { x: 465, y: 765 });
 		Matter.Body.setVelocity(pinball, { x: 0, y: -25 + rand(-2, 2) });
 		Matter.Body.setAngularVelocity(pinball, 0);
+
 	}
  
 	function resetPinball() {
