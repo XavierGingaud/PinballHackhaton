@@ -194,6 +194,11 @@ canvas {
 	font-size: 1.5em;
 }
 
+#centr,#regio,#oeuvr,#unive,#scola {
+	font-weight: bold;
+	color: #FF4900;
+}
+
 /* responsive scaling, because pinball tables are tall */
 @media (min-height: 0px) {
 	.container { -webkit-transform: scale(0.25); transform: scale(0.25); }
