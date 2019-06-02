@@ -122,7 +122,7 @@
 			bumper(285, 340),
 
 			// shooter lane wall
-			wall(440, 520, 20, 560, COLOR.OUTER),
+			wall(440, 520, 20, 530, COLOR.OUTER),
 
 			// drops (left, right)
 			path(25, 360, PATHS.DROP_LEFT),
