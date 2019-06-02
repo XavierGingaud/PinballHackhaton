@@ -21,7 +21,7 @@
 		PADDLE: '#A80606',
 		PINBALL: '#E30000'
 	};
-	const GRAVITY = 0.75;
+	const GRAVITY = 0.55;
 	const WIREFRAMES = false;
 	const BUMPER_BOUNCE = 1.5;
 	const PADDLE_PULL = 0.002;
@@ -106,12 +106,12 @@
 			path(239, 86, PATHS.DOME),
 
 			// pegs (left-most, left, mid, right, right-most)
-			wall(100, 140, 10, 40, COLOR.INNER),
-			wall(150, 140, 10, 40, COLOR.INNER),
-			wall(200, 140, 10, 40, COLOR.INNER),
-			wall(250, 140, 10, 40, COLOR.INNER),
-			wall(300, 140, 10, 40, COLOR.INNER),
-			wall(350, 140, 10, 40, COLOR.INNER),
+			wall(100, 140, 10, 40, COLOR.INNER, 0, 5),
+			wall(150, 140, 10, 40, COLOR.INNER, 0, 5),
+			wall(200, 140, 10, 40, COLOR.INNER, 0, 5),
+			wall(250, 140, 10, 40, COLOR.INNER, 0, 5),
+			wall(300, 140, 10, 40, COLOR.INNER, 0, 5),
+			wall(350, 140, 10, 40, COLOR.INNER, 0, 5),
 
 			// top bumpers (left, mid, right)
 			bumper(105, 250),
@@ -526,11 +526,11 @@
 	}
 
 	// wall segments
-	function wall(x, y, width, height, color, angle = 0) {
+	function wall(x, y, width, height, color, angle = 0, border = 10) {
 		return Matter.Bodies.rectangle(x, y, width, height, {
 			angle: angle,
 			isStatic: true,
-			chamfer: { radius: 10 },
+			chamfer: { radius: border },
 			render: {
 				fillStyle: color
 			}
