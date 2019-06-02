@@ -136,7 +136,16 @@ canvas {
 #levelDisplay {
 	color: #A80606;
 	position: absolute;
-	top: 50%;
+	top: 30%;
+	left: 5vw;
+	font-size: 5em;
+	transform: translate(0%, -50%);
+}
+
+#monthDisplay {
+	color: #A80606;
+	position: absolute;
+	top: 70%;
 	left: 5vw;
 	font-size: 5em;
 	transform: translate(0%, -50%);
