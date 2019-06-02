@@ -491,7 +491,7 @@
 		return Matter.Bodies.rectangle(x, y, width, height, {
 			angle: angle,
 			isStatic: true,
-			chamfer: { radius: 5 },
+			chamfer: { radius: 10 },
 			render: {
 				fillStyle: color
 			}
