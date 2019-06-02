@@ -98,7 +98,7 @@
 			// dome
 			path(239, 86, PATHS.DOME),
 
-			// pegs (left, mid, right)
+			// pegs (left-most, left, mid, right, right-most)
 			wall(100, 140, 10, 40, COLOR.INNER),
 			wall(150, 140, 10, 40, COLOR.INNER),
 			wall(200, 140, 10, 40, COLOR.INNER),
@@ -127,8 +127,8 @@
 			wall(330, 510, 20, 120, COLOR.INNER),
 
 			// out lane walls (left, right)
-			wall(60, 529, 20, 160, COLOR.INNER),
-			wall(390, 529, 20, 160, COLOR.INNER),
+			wall(59, 529, 20, 160, COLOR.INNER),
+			wall(391, 529, 20, 160, COLOR.INNER),
 
 			// flipper walls (left, right);
 			wall(100, 630, 20, 115, COLOR.INNER, -0.96),
@@ -445,7 +445,7 @@
 		return Matter.Bodies.rectangle(x, y, width, height, {
 			angle: angle,
 			isStatic: true,
-			chamfer: { radius: 0 },
+			chamfer: { radius: 5 },
 			render: {
 				fillStyle: color
 			}
