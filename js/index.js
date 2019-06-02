@@ -285,6 +285,11 @@
 							$('#univ').addClass("hidden");
 							$('#s').css("color", "");
 							$('#scol').addClass("hidden");
+							shownc = false;
+							shownr = false;
+							showno = false;
+							shownu = false;
+							showns = false;
 							break;
 						case 'bumper':
 							pingBumper(pair.bodyA);
@@ -303,12 +308,13 @@
 			//wall(250, 140, 10, 40, COLOR.INNER),
 			//wall(300, 140, 10, 40, COLOR.INNER),
 			//wall(350, 140, 10, 40, COLOR.INNER),
-
+			let letter = document.querySelector('#letter');
 			if (pinball.position.x < 150 && pinball.position.x > 110 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#c').css("color", "red");
 				$('#cent').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (shownc == false){
+					letter.play();
 					$('#centr').css("visibility", "visible");
 					shownc = true;
 					setTimeout(function(){
@@ -322,6 +328,7 @@
 				$('#regi').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (shownr == false){
+					letter.play();
 					$('#regio').css("visibility", "visible");
 					shownr = true;
 					setTimeout(function(){
@@ -335,6 +342,7 @@
 				$('#oeuv').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (showno == false){
+					letter.play();
 					$('#oeuvr').css("visibility", "visible");
 					showno = true;
 					setTimeout(function(){
@@ -348,6 +356,7 @@
 				$('#univ').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (shownu == false){
+					letter.play();
 					$('#unive').css("visibility", "visible");
 					shownu = true;
 					setTimeout(function(){
@@ -361,6 +370,7 @@
 				$('#scol').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (showns == false){
+					letter.play();
 					$('#scola').css("visibility", "visible");
 					showns = true;
 					setTimeout(function(){
@@ -418,6 +428,9 @@
 			if (e.which === 32) { // space arrow key
 				if (isReset) {
 					launchPinball();
+
+		let launch = document.querySelector('#launch');
+		launch.play();
 				}
 			}
 		});
@@ -450,6 +463,7 @@
 		Matter.Body.setPosition(pinball, { x: 465, y: 765 });
 		Matter.Body.setVelocity(pinball, { x: 0, y: -25 + rand(-2, 2) });
 		Matter.Body.setAngularVelocity(pinball, 0);
+
 	}
  
 	function resetPinball() {
@@ -475,7 +489,7 @@
 		$currentScore.text(currentScore);
 
 		//Create a condition level
-		if (currentScore%50 == 0 && currentScore != 0) {
+		if (currentScore%500 == 0 && currentScore != 0) {
 			levelCurrent++;
 			updateLevel(levelCurrent);
 		}
@@ -649,7 +663,7 @@
 			$monthDisplay.empty()
 			$monthDisplay.append("Mars");
 			setTimeout(function(){$monthDisplay.empty();}, 3000);
-		} else if(min == 3){
+		} else if(min == 3 && sec == 0){
 			$monthDisplay.empty()
 			$monthDisplay.append("Avril");
 			setTimeout(function(){$monthDisplay.empty();}, 3000);
