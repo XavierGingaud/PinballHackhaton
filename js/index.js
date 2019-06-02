@@ -275,6 +275,16 @@
 							resetPinball();
 							levelCurrent = 1;
 							updateLevel(1);
+							$('#c').css("color", "");
+							$('#cent').addClass("hidden");
+							$('#r').css("color", "");
+							$('#regi').addClass("hidden");
+							$('#o').css("color", "");
+							$('#oeuv').addClass("hidden");
+							$('#u').css("color", "");
+							$('#univ').addClass("hidden");
+							$('#s').css("color", "");
+							$('#scol').addClass("hidden");
 							break;
 						case 'bumper':
 							pingBumper(pair.bodyA);
@@ -408,6 +418,9 @@
 			if (e.which === 32) { // space arrow key
 				if (isReset) {
 					launchPinball();
+
+		let launch = document.querySelector('#launch');
+		launch.play();
 				}
 			}
 		});
@@ -440,6 +453,7 @@
 		Matter.Body.setPosition(pinball, { x: 465, y: 765 });
 		Matter.Body.setVelocity(pinball, { x: 0, y: -25 + rand(-2, 2) });
 		Matter.Body.setAngularVelocity(pinball, 0);
+
 	}
  
 	function resetPinball() {
@@ -639,7 +653,7 @@
 			$monthDisplay.empty()
 			$monthDisplay.append("Mars");
 			setTimeout(function(){$monthDisplay.empty();}, 3000);
-		} else if(min == 3){
+		} else if(min == 3 && sec == 0){
 			$monthDisplay.empty()
 			$monthDisplay.append("Avril");
 			setTimeout(function(){$monthDisplay.empty();}, 3000);
