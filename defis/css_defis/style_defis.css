@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Hind');
+body{
+	padding: 0;
+	background-color: #E8E8E8;
+	font-family: 'hind';
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+main{
+	width: 75%;
+}
+
+h1{
+	text-align: center;
+	color: #A80606;
+}
+
+.container{
+	width: 10vw;
+	padding: 0;
+	background-color:  #A80606;
+	border-radius: 15px;
+}
+
+.container:hover p{
+	background-color: #B72C2C;
+	color:white;
+	border-radius: 15px;
+}
+
+.contenu:hover{
+	background-color: #B72C2C;
+	border-radius: 15px;
+	box-shadow: 2px 2px 2px 2px #A80606;
+}
+
+.container p{
+	color: white;
+	font-size: 1.5em;
+	margin: 0;
+}
+
+
+
+.contenu{
+	text-align: center;
+}
+.fluid{
+	width: 10vw;
+	padding: 0;
+}
+
+button{
+	display: none;
+}
+
+.container:hover button{
+	display: block;
+	width: 100%;
+	border-radius:0px 0px 15px 15px;
+	background-color: white;
+	box-shadow: none;
+	border: none;
+	font-size: 1.5em;
+}
+
+a{
+	text-decoration: none;
+	color: #A80606;
+}
