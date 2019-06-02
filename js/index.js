@@ -465,7 +465,7 @@
 		
 		if (levelCurrent=="5") { 
 			
-			window.alert = function(alertMessage);
+			//window.alert = function(alertMessage);
 		 
 		
 			}
