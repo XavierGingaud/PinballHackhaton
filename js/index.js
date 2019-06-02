@@ -653,7 +653,7 @@
 			$monthDisplay.empty()
 			$monthDisplay.append("Mars");
 			setTimeout(function(){$monthDisplay.empty();}, 3000);
-		} else if(min == 3 && sec = 0){
+		} else if(min == 3 && sec == 0){
 			$monthDisplay.empty()
 			$monthDisplay.append("Avril");
 			setTimeout(function(){$monthDisplay.empty();}, 3000);
