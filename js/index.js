@@ -274,9 +274,41 @@
 		// regulate pinball
 		Matter.Events.on(engine, 'beforeUpdate', function(event) {
 
-		var theme = document.querySelector('#theme');
-		theme.play();
-		// Musique de theme ligne 271!
+			//wall(100, 140, 10, 40, COLOR.INNER),
+			//wall(150, 140, 10, 40, COLOR.INNER),
+			//wall(200, 140, 10, 40, COLOR.INNER),
+			//wall(250, 140, 10, 40, COLOR.INNER),
+			//wall(300, 140, 10, 40, COLOR.INNER),
+			//wall(350, 140, 10, 40, COLOR.INNER),
+
+			if (pinball.position.x < 150 && pinball.position.x > 110 && pinball.position.y > 140 && pinball.position.y < 170) {
+				$('#c').css("color", "red");
+				$('#cent').removeClass("hidden");
+			}
+
+			if (pinball.position.x < 200 && pinball.position.x > 160 && pinball.position.y > 140 && pinball.position.y < 170) {
+				$('#r').css("color", "red");
+				$('#regi').removeClass("hidden");
+			}
+
+			if (pinball.position.x < 250 && pinball.position.x > 210 && pinball.position.y > 140 && pinball.position.y < 170) {
+				$('#o').css("color", "red");
+				$('#oeuv').removeClass("hidden");
+			}
+
+			if (pinball.position.x < 300 && pinball.position.x > 260 && pinball.position.y > 140 && pinball.position.y < 170) {
+				$('#u').css("color", "red");
+				$('#univ').removeClass("hidden");
+			}
+
+			if (pinball.position.x < 350 && pinball.position.x > 310 && pinball.position.y > 140 && pinball.position.y < 170) {
+				$('#s').css("color", "red");
+				$('#scol').removeClass("hidden");
+			}
+
+			var theme = document.querySelector('#theme');
+			theme.play();
+			// Musique de theme ligne 271!
 			// bumpers can quickly multiply velocity, so keep that in check
 			Matter.Body.setVelocity(pinball, {
 				x: Math.max(Math.min(pinball.velocity.x, MAX_VELOCITY), -MAX_VELOCITY),
@@ -331,6 +363,7 @@
 			.on('mouseup touchend', function(e) {
 				isRightPaddleUp = false;
 			});
+
 	}
 
 	function launchPinball() {
@@ -347,7 +380,6 @@
 
 		// flash color
 		bumper.render.fillStyle = COLOR.BUMPER_LIT;
-		 player.play();
 		setTimeout(function() {
 			bumper.render.fillStyle = COLOR.BUMPER;
 		}, 100);
@@ -380,7 +412,7 @@
 		$highScore.text(highScore);
 	}
 
-	//TODO create a level
+	//create a level
 	function updateLevel(newCurrentLevel){
 		levelScore = newCurrentLevel;
 		$levelScore.text(levelScore);
@@ -490,4 +522,6 @@
 	}
 
 	window.addEventListener('load', load, false);
+
+	
 })();

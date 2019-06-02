@@ -152,6 +152,10 @@ canvas {
 	transform: translate(0%, -50%);
 }
 
+.hidden {
+	visibility: hidden;
+}
+
 /* responsive scaling, because pinball tables are tall */
 @media (min-height: 0px) {
 	.container { -webkit-transform: scale(0.25); transform: scale(0.25); }
@@ -165,5 +169,3 @@ canvas {
 @media (min-height: 800px) {
 	.container { -webkit-transform: scale(1); transform: scale(1); }
 }
-
-
