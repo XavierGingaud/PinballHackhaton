@@ -285,6 +285,11 @@
 							$('#univ').addClass("hidden");
 							$('#s').css("color", "");
 							$('#scol').addClass("hidden");
+							shownc = false;
+							shownr = false;
+							showno = false;
+							shownu = false;
+							showns = false;
 							break;
 						case 'bumper':
 							pingBumper(pair.bodyA);
