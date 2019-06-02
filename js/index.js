@@ -43,6 +43,7 @@
 	let showno = false;
 	let shownu = false;
 	let showns = false;
+	let isReset = true;
 	function load() {
 		init();
 		createStaticBodies();
@@ -248,19 +249,19 @@
 	function createPinball() {
 
 		// x/y are set to when pinball is launched
-		pinball = Matter.Bodies.circle(0, 0, 14, {
+		pinball = Matter.Bodies.circle(465, 765, 14, {
 			label: 'pinball',
 			collisionFilter: {
 				group: stopperGroup
 			},
 			render: {
 				fillStyle: COLOR.PINBALL
-			}
+			},
+			isStatic: true
 		});
 		Matter.World.add(world, pinball);
 		levelCurrent = 1;
 		updateLevel(1);
-		launchPinball();
 	}
 
 	function createEvents() {
@@ -271,7 +272,7 @@
 				if (pair.bodyB.label === 'pinball') {
 					switch (pair.bodyA.label) {
 						case 'reset':
-							launchPinball();
+							resetPinball();
 							levelCurrent = 1;
 							updateLevel(1);
 							break;
@@ -403,6 +404,15 @@
 			}
 		});
 
+		$('body').on('keyup', function(e) {
+			if (e.which === 32) { // space arrow key
+				if (isReset) {
+					launchPinball();
+				}
+			}
+		});
+
+
 		// click/tap paddle events
 		$('.left-trigger')
 			.on('mousedown touchstart', function(e) {
@@ -425,9 +435,17 @@
 
 	function launchPinball() {
 		updateScore(0);
+		isReset = false;
+		Matter.Body.setStatic(pinball, false);
 		Matter.Body.setPosition(pinball, { x: 465, y: 765 });
 		Matter.Body.setVelocity(pinball, { x: 0, y: -25 + rand(-2, 2) });
 		Matter.Body.setAngularVelocity(pinball, 0);
+	}
+ 
+	function resetPinball() {
+		isReset = true;
+		Matter.Body.setStatic(pinball, true);
+		Matter.Body.setPosition(pinball, { x: 465, y: 765 });
 	}
 
 	function pingBumper(bumper) {
@@ -565,6 +583,7 @@
 
 	// contact with these bodies causes pinball to be relaunched
 	function reset(x, width) {
+		isReset = true;
 		return Matter.Bodies.rectangle(x, 781, width, 2, {
 			label: 'reset',
 			isStatic: true,
