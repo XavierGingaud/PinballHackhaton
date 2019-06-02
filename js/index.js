@@ -25,7 +25,7 @@
 	const WIREFRAMES = false;
 	const BUMPER_BOUNCE = 1.5;
 	const PADDLE_PULL = 0.002;
-	const MAX_VELOCITY = 50;
+	const MAX_VELOCITY = 60;
 
 	// score elements
 	let $currentScore = $('.current-score span');
@@ -302,12 +302,6 @@
 		// regulate pinball
 		Matter.Events.on(engine, 'beforeUpdate', function(event) {
 
-			//wall(100, 140, 10, 40, COLOR.INNER),
-			//wall(150, 140, 10, 40, COLOR.INNER),
-			//wall(200, 140, 10, 40, COLOR.INNER),
-			//wall(250, 140, 10, 40, COLOR.INNER),
-			//wall(300, 140, 10, 40, COLOR.INNER),
-			//wall(350, 140, 10, 40, COLOR.INNER),
 			let letter = document.querySelector('#letter');
 			if (pinball.position.x < 150 && pinball.position.x > 110 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#c').css("color", "red");
@@ -382,6 +376,8 @@
 			var theme = document.querySelector('#theme');
 			theme.play();
 			// Musique de theme ligne 271!
+
+
 			// bumpers can quickly multiply velocity, so keep that in check
 			Matter.Body.setVelocity(pinball, {
 				x: Math.max(Math.min(pinball.velocity.x, MAX_VELOCITY), -MAX_VELOCITY),
@@ -425,12 +421,12 @@
 		});
 
 		$('body').on('keyup', function(e) {
-			if (e.which === 32) { // space arrow key
+			if (e.which === 32) { // space key
 				if (isReset) {
 					launchPinball();
 
-		let launch = document.querySelector('#launch');
-		launch.play();
+					let launch = document.querySelector('#launch');
+					launch.play();
 				}
 			}
 		});
@@ -445,6 +441,7 @@
 			.on('mouseup touchend', function(e) {
 				isLeftPaddleUp = false;
 			});
+
 		$('.right-trigger')
 		.on('mousedown touchstart', function(e) {
 				isRightPaddleUp = true;
