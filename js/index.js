@@ -37,6 +37,11 @@
 	let leftPaddle, leftUpStopper, leftDownStopper, isLeftPaddleUp;
 	let rightPaddle, rightUpStopper, rightDownStopper, isRightPaddleUp;
 	let levelCurrent = 1;
+	let shownc = false;
+	let shownr = false;
+	let showno = false;
+	let shownu = false;
+	let showns = false;
 	function load() {
 		init();
 		createStaticBodies();
@@ -291,26 +296,66 @@
 			if (pinball.position.x < 150 && pinball.position.x > 110 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#c').css("color", "red");
 				$('#cent').removeClass("hidden");
+				setTimeout(updateScore(currentScore + 10), 500);
+				if (shownc == false){
+					$('#centr').css("visibility", "visible");
+					shownc = true;
+					setTimeout(function(){
+						$('#centr').css("visibility", "hidden");
+					},500);
+				}
 			}
 
 			if (pinball.position.x < 200 && pinball.position.x > 160 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#r').css("color", "red");
 				$('#regi').removeClass("hidden");
+				setTimeout(updateScore(currentScore + 10), 500);
+				if (shownr == false){
+					$('#regio').css("visibility", "visible");
+					shownr = true;
+					setTimeout(function(){
+						$('#regio').css("visibility", "hidden");
+					},500);
+				}
 			}
 
 			if (pinball.position.x < 250 && pinball.position.x > 210 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#o').css("color", "red");
 				$('#oeuv').removeClass("hidden");
+				setTimeout(updateScore(currentScore + 10), 500);
+				if (showno == false){
+					$('#oeuvr').css("visibility", "visible");
+					showno = true;
+					setTimeout(function(){
+						$('#oeuvr').css("visibility", "hidden");
+					},500);
+				}
 			}
 
 			if (pinball.position.x < 300 && pinball.position.x > 260 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#u').css("color", "red");
 				$('#univ').removeClass("hidden");
+				setTimeout(updateScore(currentScore + 10), 500);
+				if (shownu == false){
+					$('#unive').css("visibility", "visible");
+					shownu = true;
+					setTimeout(function(){
+						$('#unive').css("visibility", "hidden");
+					},500);
+				}
 			}
 
 			if (pinball.position.x < 350 && pinball.position.x > 310 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#s').css("color", "red");
 				$('#scol').removeClass("hidden");
+				setTimeout(updateScore(currentScore + 10), 500);
+				if (showns == false){
+					$('#scola').css("visibility", "visible");
+					showns = true;
+					setTimeout(function(){
+						$('#scola').css("visibility", "hidden");
+					},500);
+				}
 			}
 
 			var theme = document.querySelector('#theme');
