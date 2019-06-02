@@ -484,7 +484,7 @@
 		$currentScore.text(currentScore);
 
 		//Create a condition level
-		if (currentScore%50 == 0 && currentScore != 0) {
+		if (currentScore%500 == 0 && currentScore != 0) {
 			levelCurrent++;
 			updateLevel(levelCurrent);
 		}
