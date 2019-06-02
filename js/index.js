@@ -152,6 +152,8 @@
 		rightUpStopper = stopper(290, 591, 'right', 'up');
 		rightDownStopper = stopper(310, 743, 'right', 'down');
 		Matter.World.add(world, [leftUpStopper, leftDownStopper, rightUpStopper, rightDownStopper]);
+		
+
 
 		// this group lets paddle pieces overlap each other
 		let paddleGroup = Matter.Body.nextGroup(true);
@@ -332,12 +334,15 @@
 			}
 		}));
 
+		let soundPaddle = document.querySelector('#PADDLE');
 		// keyboard paddle events
 		$('body').on('keydown', function(e) {
 			if (e.which === 37) { // left arrow key
 				isLeftPaddleUp = true;
+				soundPaddle.play();
 			} else if (e.which === 39) { // right arrow key
 				isRightPaddleUp = true;
+				soundPaddle.play();
 			}
 		});
 		$('body').on('keyup', function(e) {
@@ -352,6 +357,7 @@
 		$('.left-trigger')
 			.on('mousedown touchstart', function(e) {
 				isLeftPaddleUp = true;
+				soundPaddle.play();
 			})
 			.on('mouseup touchend', function(e) {
 				isLeftPaddleUp = false;
@@ -359,6 +365,7 @@
 		$('.right-trigger')
 		.on('mousedown touchstart', function(e) {
 				isRightPaddleUp = true;
+				soundPaddle.play();
 			})
 			.on('mouseup touchend', function(e) {
 				isRightPaddleUp = false;
