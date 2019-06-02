@@ -1,10 +1,7 @@
 
 
 <!--
-Copyright (c) 2019 by ADRIEN RIBOT (https://codepen.io/ARIBO/pen/joXLPQ)
-
-
-Fork of an original work by Will Boyd (https://codepen.io/lonekorean/pen/KXLrVX)
+Copyright (c) Fork of an original work by Will Boyd (https://codepen.io/lonekorean/pen/KXLrVX)
 
 
 
