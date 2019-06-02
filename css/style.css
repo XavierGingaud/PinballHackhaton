@@ -162,6 +162,16 @@ canvas {
 	color: white;
 }
 
+.definition {
+	visibility: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -100%);
+	font-size: 3em;
+	color: black;
+}
+
 /* responsive scaling, because pinball tables are tall */
 @media (min-height: 0px) {
 	.container { -webkit-transform: scale(0.25); transform: scale(0.25); }
