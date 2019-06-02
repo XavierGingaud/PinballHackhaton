@@ -36,6 +36,7 @@
 	let engine, world, render, pinball, stopperGroup;
 	let leftPaddle, leftUpStopper, leftDownStopper, isLeftPaddleUp;
 	let rightPaddle, rightUpStopper, rightDownStopper, isRightPaddleUp;
+	let levelCurrent = 1;
 	function load() {
 		init();
 		createStaticBodies();
@@ -252,6 +253,8 @@
 			}
 		});
 		Matter.World.add(world, pinball);
+		levelCurrent = 1;
+		updateLevel(1);
 		launchPinball();
 	}
 
@@ -264,6 +267,8 @@
 					switch (pair.bodyA.label) {
 						case 'reset':
 							launchPinball();
+							levelCurrent = 1;
+							updateLevel(1);
 							break;
 						case 'bumper':
 							pingBumper(pair.bodyA);
@@ -397,30 +402,19 @@
 		$currentScore.text(currentScore);
 
 		//Create a condition level
-		if (currentScore == 0 || currentScore < 30) {
-			updateLevel(1);
-			//alert("level 1");
-		}else if (currentScore == 30 || currentScore < 60) {
-			updateLevel(2);
-			if (currentScore == 30){
-				$levelDisplay.empty();
-				$levelDisplay.append('Level 2');
-				let leveloff = setTimeout(function(){$levelDisplay.empty();}, 3000);
-			}
-		}else if (currentScore == 60 || currentScore < 90) {
-			updateLevel(3);
-		}else if (currentScore == 90 || currentScore < 120) {
-			updateLevel(4);
-		}else if (currentScore == 120 || currentScore < 150) {
-			updateLevel(5);
+		if (currentScore%50 == 0 && currentScore != 0) {
+			levelCurrent++;
+			updateLevel(levelCurrent);
 		}
-
 		highScore = Math.max(currentScore, highScore);
 		$highScore.text(highScore);
 	}
 
 	//create a level
 	function updateLevel(newCurrentLevel){
+		$levelDisplay.empty()
+		$levelDisplay.append("Level "+newCurrentLevel);
+		setTimeout(function(){$levelDisplay.empty();}, 1000);
 		levelScore = newCurrentLevel;
 		$levelScore.text(levelScore);
 	}

@@ -148,8 +148,8 @@ canvas {
 	color: #A80606;
 	position: absolute;
 	top: 50%;
-	left: 10vw;
-	font-size: 7em;
+	left: 5vw;
+	font-size: 5em;
 	transform: translate(0%, -50%);
 }
 
