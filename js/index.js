@@ -303,12 +303,13 @@
 			//wall(250, 140, 10, 40, COLOR.INNER),
 			//wall(300, 140, 10, 40, COLOR.INNER),
 			//wall(350, 140, 10, 40, COLOR.INNER),
-
+			let letter = document.querySelector('#letter');
 			if (pinball.position.x < 150 && pinball.position.x > 110 && pinball.position.y > 140 && pinball.position.y < 170) {
 				$('#c').css("color", "red");
 				$('#cent').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (shownc == false){
+					letter.play();
 					$('#centr').css("visibility", "visible");
 					shownc = true;
 					setTimeout(function(){
@@ -322,6 +323,7 @@
 				$('#regi').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (shownr == false){
+					letter.play();
 					$('#regio').css("visibility", "visible");
 					shownr = true;
 					setTimeout(function(){
@@ -335,6 +337,7 @@
 				$('#oeuv').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (showno == false){
+					letter.play();
 					$('#oeuvr').css("visibility", "visible");
 					showno = true;
 					setTimeout(function(){
@@ -348,6 +351,7 @@
 				$('#univ').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (shownu == false){
+					letter.play();
 					$('#unive').css("visibility", "visible");
 					shownu = true;
 					setTimeout(function(){
@@ -361,6 +365,7 @@
 				$('#scol').removeClass("hidden");
 				setTimeout(updateScore(currentScore + 10), 500);
 				if (showns == false){
+					letter.play();
 					$('#scola').css("visibility", "visible");
 					showns = true;
 					setTimeout(function(){
